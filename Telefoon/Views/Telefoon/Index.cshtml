@@ -1,0 +1,68 @@
+﻿@Model Telefoon.Controllers.DisplayObject
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<style>
+    TABLE {
+        border: 3px solid #C0C0C0;
+        border-spacing: 2px;
+        
+    }
+
+    TD, TH {
+        border: 1px solid #C0C0C0;
+        vertical-align: top;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 40px
+    }
+
+    TD {
+        text-align: right;
+    }
+
+    input {
+        width: 100%;
+    }
+</style>
+
+
+<h2>Telefoon</h2>
+<div>Hier komt de tekst:</div>
+
+<h2>@Model.DisplayText</h2>
+
+<table>
+
+    <tr>
+        <td>@Html.ActionLink("1", "klikKnop", new { text = "1" })</td>
+        <td>@Html.ActionLink("abc", "klikKnop", new { text = "abc2ABC" })</td>
+        <td>@Html.ActionLink("def", "klikKnop", new { text = "def3DEF" })</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("ghi", "klikKnop", new { text = "ghi4GHI" })</td>
+        <td>@Html.ActionLink("jkl", "klikKnop", new { text = "jkl5JKL" })</td>
+        <td>@Html.ActionLink("mno", "klikKnop", new { text = "mno6MNO" })</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("pqrs", "klikKnop", new { text = "pqrs7PQRS" })</td>
+        <td>@Html.ActionLink("tuv", "klikKnop", new { text = "tuv8TUV" })</td>
+        <td>@Html.ActionLink("wxyz", "klikKnop", new { text = "wxyz9WXYZ" })</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("*", "klikKnop", new { text = "*" })</td>
+        <td>@Html.ActionLink("0|_|", "klikKnop", new { text = "0 " })</td>
+        <td>@Html.ActionLink("#", "klikKnop", new { text = "#" })</td>
+        <td> </td>
+    </tr>
+
+</table>
+
+<div>@Model.DebugText</div>
+
