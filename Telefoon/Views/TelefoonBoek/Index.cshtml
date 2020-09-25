@@ -1,0 +1,25 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welkom bij de telefoonBoek</h2>
+
+@Html.ActionLink("Voeg nieuw telefoonnummer in", "Create")
+
+<table class="table">
+    <tr>
+        <th>nummer naam adres</th>
+    </tr>
+
+
+    @foreach (string adres in Model)
+    {
+
+        <tr>
+            <td>@adres</td>
+            
+        </tr>
+
+    }
+</table>
