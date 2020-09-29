@@ -1,0 +1,33 @@
+﻿@model List<Telefoon.Models.info>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+
+
+<form method="post">
+    <input type="text" name="naam" />
+    <input type="submit" value="Search" />
+    @*<p>
+            Naam: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Search" />
+        </p>*@
+</form>
+
+@*<h1>@ViewBag.lijst.</h1>*@
+@if (Model != null)
+{
+    foreach (Telefoon.Models.info telefoonregel in Model)
+    {
+
+        <tr>
+            <td>@telefoonregel.nummer</td>
+            <td>@telefoonregel.naam</td>
+            <td>@telefoonregel.adres</td>
+        </tr>
+
+    }
+}

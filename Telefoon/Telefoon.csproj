@@ -168,6 +168,7 @@
     <Content Include="Views\Telefoon\Index.cshtml" />
     <Content Include="Views\TelefoonBoek\Index.cshtml" />
     <Content Include="Views\TelefoonBoek\Create.cshtml" />
+    <Content Include="Views\TelefoonBoek\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
