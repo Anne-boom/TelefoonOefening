@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
 using Telefoon.Models;
@@ -20,6 +21,7 @@ namespace Telefoon.Controllers
             StreamReader sr = new StreamReader(filePath);
 
             List<string> boek = new List<string>();
+            
             
             while(adres!= null)
             {
@@ -52,7 +54,7 @@ namespace Telefoon.Controllers
 
                 string filePath = @"C:\Users\anne\Documents\telefoonboek.txt";
                 StreamWriter writer = new StreamWriter(filePath, true);
-                writer.WriteLine($"{nummer} {newTelefoon.naam} {newTelefoon.adres}");
+                writer.WriteLine($"{nummer};{newTelefoon.naam};{newTelefoon.adres}");
                 
                 writer.Close();
 
@@ -67,11 +69,54 @@ namespace Telefoon.Controllers
         }
     }
 
+        
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Search(string naam)
+        {
+            string lijn = "g";
+            string filePath = @"C:\Users\anne\Documents\telefoonboek.txt";
+            StreamReader sr = new StreamReader(filePath);
+            List<info> lijst = new List<info>();
+
+            //List<string> boek = new List<string>();
+
+
+            while (lijn != null)
+            {
+                lijn = sr.ReadLine();
+                if (lijn != null)
+                {
+                    info niewe = new info();
+                    string[] words = lijn.Split(';');
+                    niewe.nummer = Int32.Parse(words[0]);
+                    niewe.naam = words[1];
+                    niewe.adres = words[2];
+
+                    lijst.Add(niewe);
+
+                }
+            }
+
+            List<info> filter = lijst.Where(e => e.naam.Contains(naam)).ToList();
+
+            sr.Close();
+
+            ViewBag.lijst = filter;
+
+            return View("Search", filter);
+        }
+
     }
 
-    
 
-  
 
-   
+
+
+
 }
